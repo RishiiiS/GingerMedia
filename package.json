@@ -1,0 +1,33 @@
+{
+  "name": "vehicle-image-processing",
+  "version": "1.0.0",
+  "description": "Asynchronous vehicle image processing system foundation",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "format": "prettier --write \"src/**/*.js\""
+  },
+  "dependencies": {
+    "bullmq": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "image-hash": "^5.3.1",
+    "ioredis": "^5.10.1",
+    "joi": "^17.13.1",
+    "mongoose": "^8.3.2",
+    "multer": "^1.4.5-lts.1",
+    "pino": "^9.0.0",
+    "pino-pretty": "^11.0.0",
+    "sharp": "^0.33.3",
+    "tesseract.js": "^5.0.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
+  }
+}

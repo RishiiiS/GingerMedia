@@ -1,0 +1,46 @@
+name: ginger-media-pipeline
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ginger-media-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb://mongodb:27017/ginger-media
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - NODE_ENV=development
+      - UPLOAD_DIR=uploads/
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongodb
+      - redis
+
+  mongodb:
+    image: mongo:latest
+    container_name: ginger-media-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ginger-media-mongo-data:/data/db
+
+  redis:
+    image: redis:alpine
+    container_name: ginger-media-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ginger-media-redis-data:/data
+
+volumes:
+  ginger-media-mongo-data:
+  ginger-media-redis-data:
