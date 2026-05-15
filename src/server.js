@@ -3,6 +3,7 @@ const env = require('./config/env');
 const logger = require('./config/logger');
 const connectDB = require('./config/db');
 require('./config/redis'); // Initialize redis client
+require('./workers/image.worker'); // Initialize queue workers
 
 const startServer = async () => {
   try {

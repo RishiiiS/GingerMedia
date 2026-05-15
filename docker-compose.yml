@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ginger-media-backend
+    command: npm run dev
     restart: unless-stopped
     ports:
       - "3000:3000"

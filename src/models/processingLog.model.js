@@ -14,6 +14,7 @@ const processingLogSchema = new mongoose.Schema(
       required: true,
       enum: [
         'upload',
+        'processing-started',
         'metadata-extraction',
         'blur-check',
         'brightness-check',

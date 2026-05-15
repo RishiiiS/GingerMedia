@@ -23,7 +23,8 @@ const blurAnalysisSchema = new mongoose.Schema(
 const brightnessAnalysisSchema = new mongoose.Schema(
   {
     detected: { type: Boolean },
-    brightness: { type: Number },
+    averageBrightness: { type: Number },
+    threshold: { type: Number },
   },
   { _id: false }
 );
